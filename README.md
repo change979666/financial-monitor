@@ -1,51 +1,31 @@
-# 金融数据实时监控系统
+# 金融数据实时监控系统（历史原型 / 未完成）
 
-## 项目简介
-这是一个基于Python的实时金融数据监控工具，可获取现货黄金价格、美元指数(USDX)和人民币汇率等关键金融指标数据。
+这是一个保留了部分金融数据采集与可视化代码的 Python 项目脚手架，方向包括现货黄金、美元指数（USDX）和汇率数据。
 
-## 安装方法
+> **当前状态：不能按现有 README 直接运行。** 经检查，`financial_monitor/main.py` 引用了仓库中不存在的 `financial_monitor/utils/logger.py` 和 `financial_monitor/utils/config.py`；仓库也没有根目录 `main.py` 或 README 曾提及的 `.env.example`。本仓库仅作为历史源码归档，不代表已完成或经过端到端验证的金融数据服务。
+
+## 仓库内容
+
+- `financial_monitor/api/`：部分金融数据 API 适配模块
+- `financial_monitor/models/`：监控模型
+- `financial_monitor/visualization/`：图表相关代码
+- `financial_monitor/main.py`：命令行入口草稿
+- `financial_monitor/config.example.json`：配置示例
+- `requirements.txt`：Python 依赖清单
+
+## 获取源码
+
 ```bash
-# 克隆仓库
-git clone https://github.com/yourusername/financial-monitor.git
+git clone https://github.com/change979666/financial-monitor.git
 cd financial-monitor
-
-# 安装依赖
-pip install -r requirements.txt
-
-# 配置环境变量
-cp .env.example .env
-# 编辑.env文件，添加您的API密钥
 ```
 
-## 使用方法
-```python
-# 运行主程序
-python main.py
+目前不提供可验证的快速运行步骤。若要继续开发，需要先恢复缺失的配置与日志模块、核对各数据源 API 的可用性和认证要求，再补充自动化测试。
 
-# 或者作为模块导入
-from financial_monitor import FinancialMonitor
-monitor = FinancialMonitor()
-gold_price = monitor.get_gold_price()
-print(f"当前金价: {gold_price} USD/oz")
-```
+## 数据与使用边界
 
-## 功能特性
-- 实时获取金融数据（黄金、美元指数、汇率）
-- 数据可视化展示
-- 价格预警系统
-- 历史数据分析
+金融数据的来源、延迟、字段口径和 API 可用性需要单独验证。本项目不提供投资建议，不应将未经校验的数据直接用于交易或自动决策。
 
-## 项目结构
-```
-financial_monitor/
-├── api/                # API接口模块
-├── data/               # 数据存储目录
-├── models/             # 数据模型
-├── utils/              # 工具函数
-├── visualization/      # 数据可视化模块
-├── config.py           # 配置文件
-└── main.py             # 主程序入口
-```
+## License
 
-## 许可证
-MIT 
+当前仓库未包含独立的 `LICENSE` 文件；在明确增加许可证之前，不应把仓库描述为已授予 MIT 许可。
