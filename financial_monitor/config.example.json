@@ -1,0 +1,23 @@
+{
+    "api_key": "your_api_key_here",
+    "log_level": "INFO",
+    "data_dir": "data",
+    "refresh_interval": 60,
+    "alert": {
+        "enabled": false,
+        "email": {
+            "enabled": false,
+            "smtp_server": "smtp.example.com",
+            "smtp_port": 587,
+            "username": "your_email@example.com",
+            "password": "your_password",
+            "from_addr": "your_email@example.com",
+            "to_addrs": ["recipient1@example.com", "recipient2@example.com"]
+        },
+        "thresholds": {
+            "gold_price_change": 5.0,
+            "usdx_change": 0.5,
+            "rmb_usd_change": 0.01
+        }
+    }
+} 
