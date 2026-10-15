@@ -22,6 +22,14 @@ cd financial-monitor
 
 目前不提供可验证的快速运行步骤。若要继续开发，需要先恢复缺失的配置与日志模块、核对各数据源 API 的可用性和认证要求，再补充自动化测试。
 
+## 配置与依赖（预期设计，当前不可运行）
+
+以下为代码中预留/计划的用法，并非当前可直接执行的命令：
+
+- **API Key**：按 `financial_monitor/models/financial_monitor.py` 的设计，密钥优先级为 `--api-key` 命令行参数 → 配置文件 `api_key` 字段 → 环境变量 `FINANCIAL_API_KEY`（均不硬编码进仓库）。
+- **配置文件**：`financial_monitor/config.example.json` 仅为示例，其中 `api_key`、邮箱 `username/password` 等都是占位符；请勿把真实凭据填进去后提交。
+- **依赖**：`requirements.txt` 列出 `requests / pandas / numpy / matplotlib / plotly / aiohttp / APScheduler / python-dotenv`。即使 `pip install -r requirements.txt` 成功，由于 `utils/logger.py`、`utils/config.py` 缺失，入口仍会在 import 阶段失败（`ModuleNotFoundError`）。
+
 ## 数据与使用边界
 
 金融数据的来源、延迟、字段口径和 API 可用性需要单独验证。本项目不提供投资建议，不应将未经校验的数据直接用于交易或自动决策。

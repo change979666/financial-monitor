@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Runtime output / local data
+output/
+data/
+*.log
+
+# Local config (keep config.example.json as the only sample)
+.env
+config.local.json
+
+# OS / editor
+Thumbs.db
+.DS_Store
